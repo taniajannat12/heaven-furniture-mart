@@ -94,7 +94,7 @@ const Home = () => {
       <nav className="fixed top-0 left-0 w-full z-50 navbar shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
 
-          {/* LOGO */}
+ 
 
           <a
             href="#home"
