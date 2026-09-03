@@ -1,26 +1,950 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =====================================================
+   GLOBAL — Golden Pink Theme
+   Premium, warm, and elegant — perfect for furniture brand.
+   =====================================================
+   
+   Color Palette:
+   Primary:    #2C1810 (deep espresso)
+   Accent:     #D4AF37 (gold)
+   Pink:       #E8B4B8 (soft blush)
+   Pink Dark:  #D4949A (dusty rose)
+   BG:         #FDF8F5 (warm cream)
+   Section:    #F9F0EB (soft pink-beige)
+   Text:       #2C1810
+   Muted:      #7A6B5D
+   ===================================================== */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: #fdf8f5;
+  color: #2c1810;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #d4af37;
+  color: #2c1810;
+}
+
+/* =====================================================
+   NAVBAR — Deep Espresso with Gold Accent
+===================================================== */
+
+.navbar {
+  background: rgba(44, 24, 16, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 0;
+  color: #f5ede8;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d4af37;
+}
+
+.nav-active {
+  color: #d4af37;
+}
+
+.nav-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: #d4af37;
+  transition: width 0.35s ease;
+}
+
+.nav-line-active {
+  width: 100%;
+}
+
+.quote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 12px 22px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.quote-btn:hover {
+  background: #d4af37;
+  color: #2c1810;
+}
+
+.quote-btn span {
+  transition: transform 0.3s ease;
+}
+
+.quote-btn:hover span {
+  transform: translateX(4px);
+}
+
+.mobile-menu {
+  color: #f5ede8;
+  font-size: 26px;
+}
+
+/* Mobile Menu Panel */
+.md\:hidden.bg-\[\#193432\] {
+  background: #2c1810 !important;
+}
+
+.md\:hidden.border-t {
+  border-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Mobile nav links */
+.md\:hidden .text-\[\#eee8dc\] {
+  color: #f5ede8 !important;
+}
+
+.md\:hidden .text-\[\#c5a46d\] {
+  color: #d4af37 !important;
+}
+
+.md\:hidden .hover\:text-\[\#c5a46d\]:hover {
+  color: #d4af37 !important;
+}
+
+/* =====================================================
+   HERO — Pink-Gold Gradient Overlay
+===================================================== */
+
+.hero-section {
+  background: #2c1810;
+  position: relative;
+}
+
+.hero-image {
+  animation: heroZoom 12s ease-out forwards;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.15),
+    rgba(232, 180, 184, 0.20),
+    rgba(44, 24, 16, 0.50)
+  );
+}
+
+.hero-item {
+  opacity: 0;
+  transform: translateY(35px);
+  animation: heroReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-small {
+  color: #e8b4b8;
+  margin-bottom: 20px;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: 1.02;
+  font-weight: 400;
+}
+
+.hero-title span {
+  color: #d4af37;
+  font-style: italic;
+}
+
+.hero-description {
+  margin-top: 28px;
+  max-width: 570px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 34px;
+  background: #d4af37;
+  color: #2c1810;
+  padding: 16px 28px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: all 0.35s ease;
+}
+
+.hero-button:hover {
+  background: #e8b4b8;
+  transform: translateY(-3px);
+}
+
+.hero-button span {
+  transition: transform 0.3s ease;
+}
+
+.hero-button:hover span {
+  transform: translateX(5px);
+}
+
+.hero-delay-1 {
+  animation-delay: 0.25s;
+}
+.hero-delay-2 {
+  animation-delay: 0.5s;
+}
+.hero-delay-3 {
+  animation-delay: 0.75s;
+}
+
+.hero-bottom {
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease 1.3s forwards;
+}
+
+.scroll-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 42px;
+  background: rgba(212, 175, 55, 0.7);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* =====================================================
+   COMMON SECTIONS
+===================================================== */
+
+.section-light {
+  background: #fdf8f5;
+}
+
+.section-soft {
+  background: #f9f0eb;
+}
+
+.story-section,
+.why-section,
+.collections-section,
+.social-section {
+  padding: 110px 0;
+}
+
+.section-label {
+  color: #d4949a;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.section-title span {
+  color: #d4af37;
+  font-style: italic;
+}
+
+.body-text {
+  color: #6b5a4c;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.gold-line {
+  width: 64px;
+  height: 2px;
+  background: #d4af37;
+  margin: 30px 0;
+}
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.22s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.32s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.42s;
+}
+.reveal-delay-5 {
+  transition-delay: 0.52s;
+}
+.reveal-delay-6 {
+  transition-delay: 0.62s;
+}
+
+/* =====================================================
+   OUR STORY
+===================================================== */
+
+.story-image-wrap {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.story-image-wrap:hover .story-image {
+  transform: scale(1.035);
+}
+
+.image-border {
+  position: absolute;
+  inset: 20px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  pointer-events: none;
+}
+
+.story-content {
+  max-width: 650px;
+}
+
+.story-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  color: #2c1810;
+  font-size: 13px;
+}
+
+.meta-line {
+  width: 38px;
+  height: 2px;
+  background: #d4af37;
+}
+
+/* =====================================================
+   WHY HEAVEN
+===================================================== */
+
+.why-item {
+  padding: 30px 0;
+  border-top: 1px solid #e8d9cd;
+}
+
+.why-number {
+  color: #d4949a;
+  font-size: 13px;
+  min-width: 25px;
+}
+
+.why-title {
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.why-title::before {
+  content: "✦ ";
+  color: #d4af37;
+}
+
+.why-text {
+  margin-top: 10px;
+  color: #6b5a4c;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 500px;
+}
+
+.learn-button {
+  border: 2px solid #d4af37;
+  color: #2c1810;
+  padding: 13px 25px;
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.learn-button:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #2c1810;
+}
+
+.more-content {
+  max-width: 800px;
+  margin-top: 0;
+  padding-left: 24px;
+  border-left: 2px solid #d4af37;
+  color: #6b5a4c;
+  line-height: 2;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-15px);
+  transition: all 0.5s ease;
+}
+
+.more-content p + p {
+  margin-top: 20px;
+}
+
+.more-visible {
+  opacity: 1;
+  max-height: 400px;
+  margin-top: 35px;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   COLLECTIONS
+===================================================== */
+
+.collection-card {
+  position: relative;
+  height: 510px;
+  overflow: hidden;
+  display: block;
+  background: #2c1810;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.collection-card:hover img {
+  transform: scale(1.06);
+}
+
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(44, 24, 16, 0.7),
+    rgba(44, 24, 16, 0.1) 65%
+  );
+  transition: background 0.5s ease;
+}
+
+.collection-card:hover .collection-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(44, 24, 16, 0.8),
+    rgba(212, 175, 55, 0.15) 70%
+  );
+}
+
+.bespoke-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(44, 24, 16, 0.7),
+    rgba(212, 175, 55, 0.15)
+  );
+}
+
+.collection-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 35px;
+  color: white;
+}
+
+.collection-content span {
+  color: rgba(212, 175, 55, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+}
+
+.collection-content h3 {
+  margin-top: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.collection-content p {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  transition: transform 0.3s ease;
+}
+
+.collection-card:hover .collection-content p {
+  transform: translateX(5px);
+}
+
+/* =====================================================
+   BESPOKE — Pink-Gold Dark Section
+===================================================== */
+
+.bespoke-section {
+  background: #2c1810;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.dark-label {
+  color: #e8b4b8;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.dark-title {
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.dark-title span {
+  color: #d4af37;
+  font-style: italic;
+}
+
+.dark-line {
+  width: 64px;
+  height: 2px;
+  background: #d4af37;
+  margin: 30px 0;
+}
+
+.dark-text {
+  max-width: 570px;
+  color: #f5ede8;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.dark-text-small {
+  max-width: 570px;
+  margin-top: 20px;
+  color: #d4c3b3;
+  line-height: 1.9;
+}
+
+.dark-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 32px;
+  padding: 15px 25px;
+  background: #d4af37;
+  color: #2c1810;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.dark-button:hover {
+  background: #e8b4b8;
+  transform: translateY(-3px);
+}
+
+.dark-button span {
+  transition: transform 0.3s ease;
+}
+
+.dark-button:hover span {
+  transform: translateX(5px);
+}
+
+.bespoke-image-wrap {
+  position: relative;
+  height: 580px;
+  overflow: hidden;
+}
+
+.bespoke-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.bespoke-image-wrap:hover .bespoke-image {
+  transform: scale(1.035);
+}
+
+.bespoke-label {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  background: #fdf8f5;
+  padding: 18px 22px;
+}
+
+.bespoke-label span {
+  display: block;
+  color: #d4949a;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.bespoke-label strong {
+  display: block;
+  margin-top: 7px;
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* =====================================================
+   SOCIAL PROOF
+===================================================== */
+
+.quote-mark {
+  color: #d4af37;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: 0.7;
+  margin-bottom: 20px;
+}
+
+.quote {
+  max-width: 650px;
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.4;
+}
+
+.person-name {
+  color: #2c1810;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.person-role {
+  margin-top: 5px;
+  color: #d4949a;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.trust-box {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #e8d9cd;
+}
+
+.trust-box p {
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+}
+
+.trust-box span {
+  display: block;
+  margin-top: 7px;
+  color: #6b5a4c;
+  font-size: 13px;
+}
+
+/* =====================================================
+   FINAL CTA — Pink-Gold
+===================================================== */
+
+.cta-section {
+  padding: 120px 0;
+  background: #f9f0eb;
+}
+
+.cta-title {
+  color: #2c1810;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.cta-title span {
+  color: #d4af37;
+  font-style: italic;
+}
+
+.cta-text {
+  max-width: 650px;
+  margin: 25px auto 0;
+  color: #6b5a4c;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 32px;
+  background: #2c1810;
+  color: white;
+  padding: 16px 28px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #d4af37;
+  color: #2c1810;
+  transform: translateY(-3px);
+}
+
+.cta-button span {
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover span {
+  transform: translateX(5px);
+}
+
+/* =====================================================
+   FOOTER — Pink-Gold
+===================================================== */
+
+footer.bg-\[\#193432\] {
+  background: #2c1810 !important;
+}
+
+footer .text-\[\#c5a46d\] {
+  color: #d4af37 !important;
+}
+
+footer .text-\[\#cfc8bd\] {
+  color: #f5ede8 !important;
+}
+
+footer .border-\[\#526b66\] {
+  border-color: rgba(212, 175, 55, 0.25) !important;
+}
+
+footer .hover\:text-\[\#c5a46d\]:hover {
+  color: #d4af37 !important;
+}
+
+footer .text-\[\#aebbb7\] {
+  color: #d4c3b3 !important;
+}
+
+footer .social-icon {
+  border-color: rgba(212, 175, 55, 0.3) !important;
+  color: #f5ede8 !important;
+}
+
+footer .social-icon:hover {
+  background: #d4af37 !important;
+  border-color: #d4af37 !important;
+  color: #2c1810 !important;
+}
+
+footer a:hover {
+  color: #d4af37 !important;
+}
+
+footer .border-t {
+  border-color: rgba(212, 175, 55, 0.25) !important;
+}
+
+/* =====================================================
+   SOCIAL ICONS (footer)
+===================================================== */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5ede8;
+  transition: all 0.3s ease;
+}
+
+.social-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.social-icon:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #2c1810;
+  transform: translateY(-3px);
+}
+
+/* =====================================================
+   KEYFRAMES
+===================================================== */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(0.8);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  .story-section,
+  .why-section,
+  .collections-section,
+  .social-section,
+  .bespoke-section,
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .story-image-wrap {
+    height: 430px;
+  }
+
+  .collection-card {
+    height: 420px;
+  }
+
+  .bespoke-image-wrap {
+    height: 450px;
+  }
+
+  .social-image-wrap {
+    height: 420px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .image-border {
+    inset: 14px;
+  }
 }
